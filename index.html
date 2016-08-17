@@ -13,6 +13,13 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script type="text/javascript">
+		   (function(){
+			  emailjs.init("user_3h5ccEKFkt8cnsg6qY3sh");
+		   })();
+		</script>
 	</head>
 	<body>
 
@@ -25,11 +32,11 @@
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="POST" action="https://formspree.io/askcjmac@gmail.com">
-				<input type="text" style="width:50%" name="name" id="email" placeholder="Enter your name... (Not Required)" /><br>
-				<input type="email" style="width:100%" name="_replyto" id="email" placeholder="Submit your questions here........" />
-				<input type="submit"  value="Ask" />
-			</form>
+			<div id="signup-form" >
+				<input type="text" style="width:50%" name="name" id="name" placeholder="Enter your name... (Not Required)" /><br>
+				<input type="text" style="width:100%" name="_replyto" id="message" placeholder="Submit your questions here........" />
+				<input type="submit" onclick="askcjmac()"  value="Ask" />
+			</div>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -47,6 +54,27 @@
 		<!-- Scripts -->
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			
+			
+			<script>
+			$( document ).ready(function() {
+				console.log( "ready!" );
+				
+				// parameters: service_id, template_id, template_parameters
+				//emailjs.send("askcjmac","template_y58Sb0qd",{name: "works", notes: "Check this out!"});
+				
+			});
+			
+			function askcjmac() {
+					var sendername = $("#name").val();
+					var sendmessage = $("#message").val();
+					
+					if (message != "") {
+					alert(sendername);
+						emailjs.send("askcjmac","template_y58Sb0qd",{name: sendername, message: sendmessage});
+					}
+			}
+			</script>
 
 	</body>
 </html>
