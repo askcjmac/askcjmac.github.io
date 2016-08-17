@@ -6,14 +6,17 @@
 -->
 <html>
 	<head>
-		<title>Eventually by HTML5 UP</title>
+		<title>AskCjMac</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		
+
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 		<script type="text/javascript">
 		   (function(){
@@ -36,7 +39,10 @@
 				<input type="text" style="width:50%" name="name" id="name" placeholder="Enter your name... (Not Required)" /><br>
 				<input type="text" style="width:100%" name="_replyto" id="message" placeholder="Submit your questions here........" />
 				<input type="submit" onclick="askcjmac()"  value="Ask" />
+				<p id="thanks" style="display:none;color:#1cb495;"><b>Thank you!</b></p>
 			</div>
+		
+		
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -73,6 +79,9 @@
 					//alert(sendername);
 					//
 						emailjs.send("askcjmac","template_y58Sb0qd",{name: sendername, message: sendmessage});
+						$("#name").val("Enter your name... (Not Required)") ;
+						$("#message").val("Submit your questions here........");
+						$("#thanks").fadeIn("slow").fadeOut("slow");
 					}
 			}
 			</script>
