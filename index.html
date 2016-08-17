@@ -79,8 +79,11 @@
 					//alert(sendername);
 					//
 						emailjs.send("askcjmac","template_y58Sb0qd",{name: sendername, message: sendmessage});
-						$("#name").val("Enter your name... (Not Required)") ;
-						$("#message").val("Submit your questions here........");
+						//document.getElementById("name").placeholder = "Enter your name... (Not Required)";
+						//document.getElementById("message").placeholder = "Submit your questions here........";
+						
+						$("#name").val("") ;
+						$("#message").val("");
 						$("#thanks").fadeIn(2500).fadeOut(3000);
 					}
 			}
